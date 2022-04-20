@@ -408,8 +408,9 @@ h3 {
 }
 
 .skills .progress .skill-percent {
-  position: relative;
-  left: 264px;
+  position: absolute;
+  left: 265px;
+  width: 0px;
   top: -38px;
 }
 
@@ -1037,7 +1038,7 @@ h3 {
   border-radius: 50%;
 }
 
-/* Media */
+/* Media queries */
 
 @media only screen and (max-width: 968px) {
   .about-content,

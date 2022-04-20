@@ -2,7 +2,7 @@
 var swiper = new Swiper('.testimonial-wrapper', {
   loop: 'true',
   autoplay: {
-    delay: 3000,
+    delay: 2500,
     disableOnInteraction: false,
   },
   pagination: {
