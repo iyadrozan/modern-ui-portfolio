@@ -5,11 +5,15 @@
   --header-height: 3.5rem;
 
   /* colors */
-  --color-white: hsl(252, 30%, 100%);
-  --color-light: hsl(252, 30%, 92%);
+  --primary-color-hue: 352;
+  --dark-color-lightnes: 17%;
+  --light-color-lightnes: 92%;
+  --white-color-lightnes: 100%;
+  --color-white: hsl(252, 30%, var(--white-color-lightnes));
+  --color-light: hsl(252, 30%, var(--light-color-lightnes));
   --color-gray: hsl(252, 15%, 65%);
-  --color-primary: hsl(352, 75%, 60%);
-  --color-dark: hsl(252, 30%, 17%);
+  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+  --color-dark: hsl(252, 30%, var(--dark-color-lightnes));
 
   /* Font and typography */
   --body-font: 'Poppins', sans-serif;
@@ -48,6 +52,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body,
@@ -219,6 +227,14 @@ h3 {
   color: var(--color-primary);
 }
 
+.nav-close {
+  font-size: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  cursor: pointer;
+}
+
 .nav-btns {
   display: inline-flex;
   align-items: center;
@@ -235,6 +251,7 @@ h3 {
   cursor: pointer;
 }
 
+.nav-close,
 .nav-toggle {
   display: none;
 }
@@ -252,6 +269,11 @@ h3 {
   height: 0.3rem;
   background-color: var(--color-primary);
   border-radius: 50%;
+}
+
+.scroll-header {
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.123);
+  transition: 0.2s;
 }
 /* ========== Home ========== */
 .home {
@@ -344,7 +366,9 @@ h3 {
 }
 
 /* ========== About ========== */
-
+#about {
+  padding-top: 20px;
+}
 .about-img {
   flex: 0 0 25%;
   max-width: 25%;
@@ -352,7 +376,6 @@ h3 {
 
 .about-img img {
   display: inline-block;
-  transform: translateX(20px) translateY(0);
 }
 
 .about-content {
@@ -407,11 +430,10 @@ h3 {
   border-radius: var(--border-radius);
 }
 
-.skills .progress .skill-percent {
+.about-content .skills .skill-item .skill-percent {
   position: absolute;
-  left: 265px;
-  width: 0px;
-  top: -38px;
+  right: 0;
+  top: -2.25rem;
 }
 
 .fact-item {
@@ -436,15 +458,15 @@ h3 {
 
 .services .services-item .services-item-inner {
   border-radius: var(--border-radius);
+  box-shadow: -1px 1px 15px -4px rgba(0, 0, 0, 0.75);
   padding: var(--card-padding);
   text-align: center;
-  transform: translateY(0);
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .services .services-item .services-item-inner:hover {
-  box-shadow: 0px 2px 5px -1px #241e38;
-  transform: translatey(-0.625rem);
+  box-shadow: -1px 1px 15px -4px rgba(0, 0, 0, 0.75) inset;
+  transform: scale(0.99);
 }
 
 .services-item h3 {
@@ -465,8 +487,10 @@ h3 {
   color: var(--color-primary);
 }
 
-/* ========== Services ========== */
-
+/* ========== Experience ========== */
+#experience {
+  padding-top: 20px;
+}
 .education {
   flex: 0 0 50%;
   max-width: 50%;
@@ -532,11 +556,12 @@ h3 {
 }
 
 /* ========== Pricing ========== */
-
+#pricing {
+  padding-top: 20px;
+}
 .prices {
   flex: 0 0 33.33%;
   max-width: 33.33%;
-  display: flex;
 }
 
 .prices:nth-child(odd) {
@@ -608,7 +633,9 @@ h3 {
 }
 
 /* ========== Porfolio ========== */
-
+#portfolio {
+  padding-top: 20px;
+}
 .portfolio .portfolio-filter {
   flex: 0 0 100%;
   max-width: 100%;
@@ -794,6 +821,7 @@ h3 {
 }
 
 .contact-data {
+  width: 222px;
   display: grid;
   row-gap: 2rem;
 }
@@ -986,7 +1014,7 @@ h3 {
   background: hsl(152, 75%, 60%);
 }
 .customize-theme .choose-color span:nth-child(5) {
-  background: hsl(252, 75%, 60%);
+  background: hsl(202, 75%, 60%);
 }
 
 .customize-theme .choose-color span.active {
@@ -1046,23 +1074,19 @@ h3 {
     flex: 0 0 100%;
     max-width: 100%;
   }
-
   .about-img {
     text-align: center;
     margin-bottom: var(--m-2-5);
   }
-
   .prices,
   .services .services-item {
     flex: 0 0 50%;
     max-width: 50%;
     margin-bottom: var(--m-2-5);
   }
-
   .price-item.best {
     padding: var(--card-padding);
   }
-
   .prices:nth-child(odd) {
     margin-top: 0;
   }
@@ -1077,6 +1101,10 @@ h3 {
     padding-right: 15px;
     padding-left: 15px;
   }
+  .portfolio-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1084,6 +1112,9 @@ h3 {
     margin: var(--header-height) 0 0 0;
   }
 
+  .container {
+    max-width: 568px;
+  }
   .nav {
     height: var(--header-height);
   }
@@ -1097,9 +1128,49 @@ h3 {
     height: 100%;
     width: 80%;
     top: 0%;
-    right: 0;
+    right: 100%;
     padding: 4rem 0 0 3rem;
     border-radius: 1rem 0 0 1rem;
     z-index: 100;
+    transition: 0.3s;
+  }
+  .show-menu {
+    right: 0;
+  }
+  .nav-close,
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .portfolio-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .portfolio-item,
+  .contact-content,
+  .contact-form,
+  .prices,
+  .education,
+  .experience,
+  .services .services-item,
+  .about-content .about-text,
+  .about-content .skills {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .contact-data,
+  .contact-form,
+  .education {
+    margin-bottom: var(--m-2-5);
+  }
+  .portfolio-item .mask {
+    border-radius: 30px;
+  }
+  .portfolio-item img {
+    border-radius: 30px;
+  }
+  .btn-about {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--m-2-5);
   }
 }
