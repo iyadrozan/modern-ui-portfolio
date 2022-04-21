@@ -162,7 +162,7 @@ h3 {
   z-index: 100;
 }
 
-/* ========== Header ========== */
+/* ========== Navbar ========== */
 
 .nav {
   height: calc(var(--header-height) + 1.5rem);
@@ -293,15 +293,19 @@ h3 {
 
 @keyframes ani-mouse {
   0% {
-    transform: translate(0, 12px);
-    opacity: 0;
+    transform: translate(0, 4px);
+    opacity: 1;
   }
   50% {
     opacity: 1;
   }
+  75% {
+    transform: translate(0, -9px);
+    opacity: 1;
+  }
   100% {
-    transform: translate(0, -12px);
-    opacity: 0;
+    transform: translate(0, 4px);
+    opacity: 1;
   }
 }
 
@@ -335,6 +339,11 @@ h3 {
   max-width: 25%;
 }
 
+.about-img img {
+  display: inline-block;
+  transform: translateX(20px) translateY(0);
+}
+
 .about-content {
   flex: 0 0 75%;
   max-width: 75%;
@@ -355,6 +364,7 @@ h3 {
 .about-text p {
   text-align: justify;
   margin-bottom: var(--m-1);
+  letter-spacing: -0.4px;
 }
 
 .about-content .skills .skill-item {
@@ -384,4 +394,22 @@ h3 {
   top: 0;
   height: 100%;
   border-radius: var(--border-radius);
+}
+
+.skills .progress .skill-percent {
+  position: relative;
+  top: -39px;
+  left: 145px;
+}
+
+.fact-item {
+  flex: 0 0 33%;
+  max-width: 33%;
+  margin-top: var(--h2-font-size);
+  text-align: center;
+}
+
+.fact-item i {
+  font-size: var(--h2-font-size);
+  color: var(--color-gray);
 }
